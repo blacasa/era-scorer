@@ -1,0 +1,28 @@
+{
+    "batiments": [
+        {"type": "KEEP", "label": "Keep/Donjon", "pts": 1, "score": 0, "icon": ""},
+        {"type": "LONGHOUSE", "label": "Longhouse/Chaumière", "pts": 1, "score": 0, "icon": ""},
+        {"type": "TOWNHOUSE", "label": "Townhouse/Maison", "pts": 1, "score": 0, "icon": ""},
+        {"type": "CHURCH", "label": "Church/Eglise", "pts": 1, "score": 0, "icon": ""},
+        {"type": "FARM", "label": "Farm/Ferme", "pts": 1, "score": 0, "icon": ""},
+        {"type": "LUMBERMILL", "label": "Lumbermill/Scierie", "pts": 2, "score": 0, "icon": ""},
+        {"type": "HOSPITAL", "label": "Hospital/Hôpital", "pts": 3, "score": 0, "icon": ""},
+        {"type": "MONASTERY", "label": "Monastery/Monastère", "pts": 4, "score": 0, "icon": ""},
+        {"type": "MARKET", "label": "Market/Marché", "pts": 2, "score": 0, "icon": ""},
+        {"type": "GUILDHALL", "label": "Guildhall/Guilde", "pts": 3, "score": 0, "icon": ""},
+        {"type": "UNIVERSITY", "label": "University/Université", "pts": 4, "score": 0, "icon": ""},
+        {"type": "CATHEDRAL", "label": "Cathedral/Cathédrale", "pts": 5, "score": 0, "icon": ""}
+    ],
+    "bonus": [
+        {"type": "MARKET_BONUS", "label": "Market/Marché", "pts": 1, "typeBonus": "Espace libre", "score": 0, "unique": false, "icon":""},
+        {"type": "GUILDHALL_BONUS", "label": "Guildhall/Guilde", "pts": 1, "typeBonus": "Ressource", "score": 0, "unique": false, "icon":""},
+        {"type": "UNIVERSITY_BONUS", "label": "University/Université", "pts": 1, "typeBonus": "Culture", "score": 0, "unique": false, "icon":""},
+        {"type": "CATHEDRAL_BONUS", "label": "Cathedral/Cathédrale", "pts": 1, "typeBonus": "Dés", "score": 0, "unique": false, "icon":""},
+        {"type": "CULTURE_BONUS", "label": "Culture", "pts": 1, "typeBonus": "Culture", "score": 0, "unique": false, "icon":""},
+        {"type": "MOST_CULTURE_BONUS", "label": "Most Culture", "pts": 5, "typeBonus": "Le plus de culture", "score": 0, "unique": true, "icon":""},
+        {"type": "MOST_WALLED_BONUS", "label": "Most Walled Area", "pts": 10, "typeBonus": "Plus grande aire", "score": 0, "unique": true, "icon":""}
+    ],
+    "malus": [
+        {"type": "DISASTER", "label": "Disaster/Désastre", "pts": -1, "score": 0, "icon": ""}
+    ]
+}
