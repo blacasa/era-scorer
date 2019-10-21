@@ -13,11 +13,12 @@
                     v-model="qte"
                     :name="bonus.type"
                     value="1"
+                    :disabled="!bonus.actif"
                     unchecked-value="0">
                 </b-form-checkbox>
             </b-col>
             <b-col sm="3">
-                sous-total: {{ calculerScoreBonus }} pts
+                sous-total: {{ calculerScoreBonus() }} pts
             </b-col>
             </b-row>
         </b-container>
@@ -37,8 +38,15 @@ export default {
             qte: 0,
         }
     },
-    computed:{
+    // Utilisation de methods au lieu de computed
+    // Lire: https://medium.com/@arieldi/bref-comprendre-le-computed-en-profondeur-dans-vue-js-ses-diff%C3%A9rences-avec-watch-methods-62635c2bb394
+    methods:{
         calculerScoreBonus: function() {
+            if (!this.bonus.actif) {
+                // Si le bouton est inactif, on force qte à 0
+                // pour décocher et forcer le score à 0
+                this.qte = 0;
+            }
             var totalBonus = this.qte * this.bonus.pts;
             this.$emit('total-event-bonus', totalBonus, this.bonus.type);
             return totalBonus;

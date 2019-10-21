@@ -12,7 +12,7 @@
                 v-on:total-event-batiment="updateTotalScoreBatiment"/>
         </b-form-group>
         <b-form-group
-            id="fieldset-1"
+            id="fieldset-2"
             label="Bonus">
             <bonus
                 v-for="bonusLine in scorer.bonus"
@@ -21,7 +21,7 @@
                 v-on:total-event-bonus="updateTotalScoreBonus"/>
         </b-form-group>
         <b-form-group
-            id="fieldset-1"
+            id="fieldset-3"
             label="Malus">
             <malus
                 v-for="malusLine in scorer.malus"
@@ -30,7 +30,7 @@
                 v-on:total-event-malus="updateTotalScoreMalus"/>
         </b-form-group>
         <b-form-group
-            id="fieldset-1"
+            id="fieldset-4"
             label="Total">
             <total v-bind:score="[scorer.batiments, scorer.bonus, scorer.malus]"/>
         </b-form-group>
@@ -103,6 +103,26 @@ export default {
                     return bonusLine;
                 }
             });
+            /*
+             * Si le type est 'CULTURE_BONUS', et que total est > 0,
+             * il faut que le bonus 'MOST_CULTURE_BONUS' puisse être coché
+             */
+            if (type === 'CULTURE_BONUS') {
+                var mostCultureBonus = this.scorer.bonus.find(function(bonusLine) {
+                    if (bonusLine.type === 'MOST_CULTURE_BONUS') {
+                        return bonusLine;
+                    }
+                });
+                mostCultureBonus.actif = total > 0;
+                // Si total === 0, il faudrait uncheck la ligne...
+                // Ou juste mettre le score à 0?
+                // Cette solution fonctionne pour le score total
+                // mais la checkbox reste cochée, le sous total de la ligne reste à 5
+                // => comment faire communiquer 2 child components?
+                if (total === 0) {
+                    mostCultureBonus.score = 0;
+                }
+            }
             updatedBonus.score = total;
         },
         updateTotalScoreMalus: function(total, type) {
